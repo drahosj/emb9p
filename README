@@ -1,0 +1,30 @@
+emb9p - embedded 9p server
+
+OVERVIEW
+
+The objective of this project is to provided and embedded (or embeddable)
+9p file server without dependency on an underlying OS. Specifically,
+without a dependency on the concept of file desciptors and read()/write()
+syscalls. The messages might just be getting crammed in through a UART.
+
+This could be useful for running a PoC 9p server on simulated RTL, eg. 
+simming RISC-V SoCs with a 9p server exposing various registers over a
+serial line. Or for porting Inferno to a potato. Up to you.
+
+STATUS
+
+Currently, this consists of useful <fcall.h> functions to handle parsing
+of 9p messages ripped straight from Plan9 source code
+
+LICENSING
+
+New code is released under the terms of the MIT license. Several
+files are copied from 9front source code. * denotes modifications.
+
+      inc/fcall.h
+      inc/u.h
+      inc/stat.h
+      src/convD2M.c
+      src/convM2D.c
+      src/convM2S.c
+      src/convS2M.c
